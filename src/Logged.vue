@@ -1,6 +1,6 @@
 <template>
     <div>
-		<h2>Witaj {{ username }}!<button @click="$emit('logout')">Wyloguj</button></h2>
+		<h2>Witaj {{ username }}!<button @click="$emit('logout')" style="float:right;">Wyloguj</button></h2>
         
     </div>
 </template>
