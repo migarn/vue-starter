@@ -1,14 +1,13 @@
 <template>
     <div>
-        <h1>Witaj w systemie do zapisów na zajęcia</h1>
+        <h1>System do zapisów na zajęcia</h1>
 
         <div v-if="authenticatedUsername">
-            <h2>Witaj {{ authenticatedUsername }}</h2>
-            <a @click="logMeOut()">Wyloguj</a>
+			<logged :username="authenticatedUsername" @logout="logMeOut()"></logged>
         </div>
 
         <div v-else>
-            <login-form @login="logMeIn($event)" button-label="Wejdź"></login-form>
+            <login-form @login="logMeIn($event)"></login-form>
 			</div>
 
     </div>
@@ -17,9 +16,10 @@
 <script>
     import "milligram";
     import LoginForm from "./LoginForm";
+	import Logged from "./Logged";
 
     export default {
-        components: {LoginForm},
+        components: {LoginForm, Logged},
         data() {
             return {
                 authenticatedUsername: '',
