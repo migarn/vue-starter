@@ -8,8 +8,7 @@
 
         <div v-else>
             <login-form @login="logMeIn($event)"></login-form>
-			</div>
-
+		</div>
     </div>
 </template>
 

@@ -13,6 +13,7 @@
             </tr>
         </tbody>
     </table>
+	<div v-else>Brak zaplanowanych spotkań</div>
 </template>
 
 <script>

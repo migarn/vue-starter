@@ -1,6 +1,6 @@
 <template>
     <div>
-       <h2>Zajęcia</h2>
+       <h2>Zaplanowane zajęcia</h2>
        <new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
        <meetings-list :meetings="meetings"></meetings-list>
     </div>
