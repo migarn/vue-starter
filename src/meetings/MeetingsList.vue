@@ -16,8 +16,7 @@
                 <td>{{ meeting.description }}</td>
 				<td></td>
 				<td>
-					<button class="button button-outline">Zapisz się</button>
-					<button>Usuń puste spotkanie</button>
+					<meeting-handler></meeting-handler>
 				</td>
             </tr>
         </tbody>
@@ -28,7 +27,9 @@
 </template>
 
 <script>
+	import MeetingHandler from "./MeetingHandler";
 	export default {
+		components: {MeetingHandler},
 		props: ['meetings']
 	}
 </script>
