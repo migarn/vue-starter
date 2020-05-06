@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div v-if="!addMeetingClicked">
-			<button @click=addNewMeeting()>Dodaj nowe spotkanie</button>
+			<button @click="clickAddNew()">Dodaj nowe spotkanie</button>
 		</div>
 		<div v-else>
 			<new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
@@ -23,9 +23,12 @@
 			};
 		},
 		methods: {
-			addNewMeeting(meeting) {
+			clickAddNew() {
 				this.addMeetingClicked = true;
+			},
+			addNewMeeting(meeting) {
 				this.meetings.push(meeting);
+				this.addMeetingClicked = false;
 			}
 		}
 	}

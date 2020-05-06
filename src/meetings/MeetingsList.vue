@@ -1,24 +1,27 @@
 <template>
-    <table v-if="meetings.length > 0">
-	<h2>Zaplanowane zajęcia</h2>
+	<div v-if="meetings.length > 0">
+		<h2>Zaplanowane zajęcia ({{ meetings.length }})</h2>
+		<table>
         <thead>
-            <tr>
-                <th>Nazwa spotkania</th>
+			<tr>
+				<th>Nazwa spotkania</th>
                 <th>Opis</th>
             </tr>
-        </thead>
-        <tbody>
+		</thead>
+		<tbody>
             <tr v-for="meeting in meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
             </tr>
         </tbody>
-    </table>
+	</table>
+	</div>
+
 	<div v-else>Brak zaplanowanych spotkań</div>
 </template>
 
 <script>
-export default {
-    props: ['meetings']
-}
+	export default {
+		props: ['meetings']
+	}
 </script>
