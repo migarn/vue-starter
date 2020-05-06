@@ -6,12 +6,19 @@
 			<tr>
 				<th>Nazwa spotkania</th>
                 <th>Opis</th>
+				<th>Uczestnicy</th>
+				<th></th>
             </tr>
 		</thead>
 		<tbody>
             <tr v-for="meeting in meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
+				<td></td>
+				<td>
+					<button class="button button-outline">Zapisz się</button>
+					<button>Usuń puste spotkanie</button>
+				</td>
             </tr>
         </tbody>
 	</table>
