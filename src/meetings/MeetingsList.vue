@@ -1,5 +1,6 @@
 <template>
     <table v-if="meetings.length > 0">
+	<h2>Zaplanowane zajęcia</h2>
         <thead>
             <tr>
                 <th>Nazwa spotkania</th>

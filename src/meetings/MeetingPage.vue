@@ -1,26 +1,32 @@
 <template>
-    <div>
-       <h2>Zaplanowane zajęcia</h2>
-       <new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
-       <meetings-list :meetings="meetings"></meetings-list>
-    </div>
+	<div>
+		<div v-if="!addMeetingClicked">
+			<button @click=addNewMeeting()>Dodaj nowe spotkanie</button>
+		</div>
+		<div v-else>
+			<new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
+		</div>
+		<meetings-list :meetings="meetings"></meetings-list>
+	</div>
 </template>
 
 <script>
-import NewMeetingForm from "./NewMeetingForm";
-import MeetingsList from "./MeetingsList";
+	import NewMeetingForm from "./NewMeetingForm";
+	import MeetingsList from "./MeetingsList";
 
-export default {
-  components: {NewMeetingForm, MeetingsList},
-  data() {
-      return {
-          meetings: []
-      };
-  },
-  methods: {
-      addNewMeeting(meeting) {
-          this.meetings.push(meeting);
-      }
-  }
-}
+	export default {
+		components: {NewMeetingForm, MeetingsList},
+		data() {
+			return {
+				meetings: [],
+				addMeetingClicked: false
+			};
+		},
+		methods: {
+			addNewMeeting(meeting) {
+				this.addMeetingClicked = true;
+				this.meetings.push(meeting);
+			}
+		}
+	}
 </script>
