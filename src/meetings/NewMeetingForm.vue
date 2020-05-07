@@ -5,7 +5,7 @@
 		<input type="text" v-model="newMeeting.name">
 		<label>Opis</label>
 		<textarea v-model="newMeeting.description"></textarea>
-		<button @click="addNewMeeting()">Dodaj</button>
+		<p style="color:red;"><button @click="addNewMeeting()">Dodaj</button> {{ this.warning }}</p>		
 	</form>
 </template>
 
@@ -13,13 +13,19 @@
 	export default {
 		data() {
 			return {
-				newMeeting: {}
+				newMeeting: {},
+				warning: ""
 			};
 		},
 		methods: {
 			addNewMeeting() {
-				this.$emit('added', this.newMeeting);
-				this.newMeeting = {};
+				if (this.newMeeting.name) {
+					this.$emit('added', this.newMeeting);
+					this.newMeeting = {};
+				}
+				else {
+					this.warning = "Spotkanie musi mieć nazwę!";
+				}
 			}
 		}
 	}
