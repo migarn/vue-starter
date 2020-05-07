@@ -1,10 +1,10 @@
 <template>
     <div>
-		<h2>Witaj {{ username }}!<button @click="$emit('logout')"
+		<h2>Witaj {{ username }}!<button @click="logMeOut()"
 			style="float:right;" class="button button-outline">Wyloguj</button></h2>
 
 		<div>
-			<meeting-page></meeting-page>
+			<meeting-page :meetings="meetings" @meetings=meetings></meeting-page>
 		</div>
 		
     </div>
@@ -14,6 +14,11 @@
 	import MeetingPage from "./meetings/MeetingPage";
     export default {
 		components: {MeetingPage},
-		props: ['username']
+		methods: {
+			logMeOut() {
+				this.$emit('logout', this.meetings);
+			}
+		},
+		props: ['username', 'meetings']
     }
 </script>

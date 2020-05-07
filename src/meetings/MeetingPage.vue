@@ -16,9 +16,9 @@
 
 	export default {
 		components: {NewMeetingForm, MeetingsList},
+		props: ['meetings'],
 		data() {
 			return {
-				meetings: [],
 				addMeetingClicked: false
 			};
 		},
@@ -29,6 +29,7 @@
 			addNewMeeting(meeting) {
 				this.meetings.push(meeting);
 				this.addMeetingClicked = false;
+				this.$emit('meetings', this.meetings);
 			}
 		}
 	}

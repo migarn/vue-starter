@@ -3,7 +3,7 @@
         <h1>System do zapisów na zajęcia</h1>
 
         <div v-if="authenticatedUsername">
-			<logged-in-page :username="authenticatedUsername" @logout="logMeOut()"></logged-in-page>
+			<logged-in-page :username="authenticatedUsername" :meetings="meetings" @logout="logMeOut($event)"></logged-in-page>
         </div>
 
         <div v-else>
@@ -22,14 +22,16 @@
         data() {
             return {
                 authenticatedUsername: '',
+				meetings: [],
             }
         },
         methods: {
             logMeIn(username) {
                 this.authenticatedUsername = username;
             },
-            logMeOut() {
+            logMeOut(meetings) {
                 this.authenticatedUsername = '';
+				this.meetings = meetings;
             }
         }
     }
