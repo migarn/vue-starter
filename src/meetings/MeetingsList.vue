@@ -16,7 +16,7 @@
                 <td>{{ meeting.description }}</td>
 				<td><p v-for="participant in meeting.participants" :key="participant">○ {{ participant }}</p></td>
 				<td>
-					<meeting-handler @signUp="signUp()" :meeting="meeting" :username="username"></meeting-handler>
+					<meeting-handler @signUp="signUp()" @signOff="signOff()" :meeting="meeting" :username="username"></meeting-handler>
 				</td>
             </tr>
         </tbody>
@@ -32,6 +32,9 @@
 		components: {MeetingHandler},
 		methods: {
             signUp() {
+				this.$forceUpdate();
+            },
+			signOff() {
 				this.$forceUpdate();
             }
         },

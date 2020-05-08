@@ -4,7 +4,7 @@
 		<button style="margin-left:5px;">Usuń puste spotkanie</button>
 	</div>
 	<div v-else style="float:right;">
-		<button class="button button-outline">Wypisz się</button>
+		<button class="button button-outline" @click="signOff()">Wypisz się</button>
 	</div>
 </template>
 
@@ -20,8 +20,13 @@
 				if (this.meeting.participants.indexOf(this.username) === -1) {
 					this.meeting.participants.push(this.username);
 					this.$forceUpdate();
+					this.$emit('signUp');
 				}
-				this.$emit('signUp');
+            },
+			signOff() {
+				this.meeting.participants.splice(this.meeting.participants.indexOf(this.username), 1);
+				this.$forceUpdate();
+				this.$emit('signOff');
             }
         },
 		props: ['username', 'meeting']
