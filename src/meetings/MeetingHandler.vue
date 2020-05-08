@@ -7,9 +7,16 @@
 
 <script>
     export default {
+		data() {
+            return {
+                participants: {}
+            };
+        },
         methods: {
             signUp() {
-                this.meeting.participants=this.username;
+                this.meeting.participants.push(this.username);
+				//participants.push(this.username);
+				//meeting.participants = participants;
 				this.$emit('signUp');
             }
         },

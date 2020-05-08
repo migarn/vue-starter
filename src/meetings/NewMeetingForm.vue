@@ -20,8 +20,8 @@
 		methods: {
 			addNewMeeting() {
 				if (this.newMeeting.name) {
+					this.newMeeting.participants = [];
 					this.$emit('added', this.newMeeting);
-					//this.newMeeting.participants = {};
 					this.newMeeting = {};
 				}
 				else {
