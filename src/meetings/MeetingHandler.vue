@@ -14,9 +14,9 @@
         },
         methods: {
             signUp() {
-                this.meeting.participants.push(this.username);
-				//participants.push(this.username);
-				//meeting.participants = participants;
+				if (this.meeting.participants.indexOf(this.username) === -1) {
+					this.meeting.participants.push(this.username);
+				}
 				this.$emit('signUp');
             }
         },
