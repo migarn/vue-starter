@@ -16,7 +16,7 @@
                 <td>{{ meeting.description }}</td>
 				<td>{{ meeting.participants }}</td>
 				<td>
-					<meeting-handler></meeting-handler>
+					<meeting-handler :username="username"></meeting-handler>
 				</td>
             </tr>
         </tbody>
@@ -30,6 +30,6 @@
 	import MeetingHandler from "./MeetingHandler";
 	export default {
 		components: {MeetingHandler},
-		props: ['meetings']
+		props: ['username', 'meetings']
 	}
 </script>

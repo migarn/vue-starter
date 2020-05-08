@@ -4,7 +4,7 @@
 			style="float:right;" class="button button-outline">Wyloguj</button></h2>
 
 		<div>
-			<meeting-page :meetings="meetings" @meetings=meetings></meeting-page>
+			<meeting-page :meetings="meetings" :username="username" @meetings=meetings></meeting-page>
 		</div>
 		
     </div>

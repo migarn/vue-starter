@@ -6,7 +6,7 @@
 		<div v-else>
 			<new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
 		</div>
-		<meetings-list :meetings="meetings"></meetings-list>
+		<meetings-list :meetings="meetings" :username="username"></meetings-list>
 	</div>
 </template>
 
@@ -16,7 +16,7 @@
 
 	export default {
 		components: {NewMeetingForm, MeetingsList},
-		props: ['meetings'],
+		props: ['username', 'meetings'],
 		data() {
 			return {
 				addMeetingClicked: false
