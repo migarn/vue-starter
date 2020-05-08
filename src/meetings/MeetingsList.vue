@@ -16,7 +16,7 @@
                 <td>{{ meeting.description }}</td>
 				<td>{{ meeting.participants }}</td>
 				<td>
-					<meeting-handler :username="username"></meeting-handler>
+					<meeting-handler @signUp="signUp()" :meeting="meeting" :username="username"></meeting-handler>
 				</td>
             </tr>
         </tbody>
@@ -30,6 +30,11 @@
 	import MeetingHandler from "./MeetingHandler";
 	export default {
 		components: {MeetingHandler},
+		methods: {
+            signUp() {
+				this.$forceUpdate();
+            }
+        },
 		props: ['username', 'meetings']
 	}
 </script>
