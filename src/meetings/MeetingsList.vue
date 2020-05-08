@@ -1,5 +1,5 @@
 <template>
-	<div v-if="meetings.length > 0">
+	<div v-if="this.meetings.length > 0">
 		<h2>Zaplanowane zajęcia ({{ meetings.length }})</h2>
 		<table>
         <thead>
@@ -11,10 +11,10 @@
             </tr>
 		</thead>
 		<tbody>
-            <tr v-for="meeting in meetings" :key="meeting.name">
+            <tr v-for="meeting in this.meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
-				<td>{{ meeting.participants }}</td>
+				<td><p v-for="participant in meeting.participants" :key="participant">○ {{ participant }}</p></td>
 				<td>
 					<meeting-handler @signUp="signUp()" :meeting="meeting" :username="username"></meeting-handler>
 				</td>

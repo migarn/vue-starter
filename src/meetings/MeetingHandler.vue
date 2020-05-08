@@ -1,5 +1,8 @@
 <template>
-	<div style="float:right;">
+	<div v-if="this.meeting.participants.length > 0" style="float:right;">
+		<button class="button button-outline">Wypisz się</button>
+	</div>
+	<div v-else style="float:right;">
 		<button class="button button-outline" @click="signUp()">Zapisz się</button>
 		<button style="margin-left:5px;">Usuń puste spotkanie</button>
 	</div>
