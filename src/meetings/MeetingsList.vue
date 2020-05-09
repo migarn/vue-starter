@@ -4,8 +4,8 @@
 		<table>
         <thead>
 			<tr>
-				<th>Nazwa spotkania</th>
-                <th>Opis</th>
+				<th style="width:175px">Nazwa<br> spotkania</th>
+                <th style="width:235px">Opis</th>
 				<th>Uczestnicy</th>
 				<th></th>
             </tr>
@@ -16,28 +16,29 @@
                 <td>{{ meeting.description }}</td>
 				<td><p v-for="participant in meeting.participants" :key="participant">○ {{ participant }}</p></td>
 				<td>
-					<meeting-handler @signUp="signUp()" @signOff="signOff()" :meeting="meeting" :username="username"></meeting-handler>
+					<meeting-handler @signUp="signUp()" @signOff="signOff()" @deleteMeeting="deleteMeeting($event)" :meeting="meeting" :username="username"></meeting-handler>
 				</td>
             </tr>
         </tbody>
 	</table>
 	</div>
-
-	<div v-else>Brak zaplanowanych spotkań</div>
+	<div v-else>Brak zaplanowanych spotkań.</div>
 </template>
-
 <script>
 	import MeetingHandler from "./MeetingHandler";
 	export default {
 		components: {MeetingHandler},
+		props: ['username', 'meetings'],
 		methods: {
             signUp() {
 				this.$forceUpdate();
             },
 			signOff() {
 				this.$forceUpdate();
-            }
-        },
-		props: ['username', 'meetings']
+            },
+			deleteMeeting(meeting) {
+				this.meetings.splice(this.meetings.indexOf(meeting), 1);
+			}
+        }
 	}
 </script>

@@ -9,11 +9,9 @@
 		<meetings-list :meetings="meetings" :username="username"></meetings-list>
 	</div>
 </template>
-
 <script>
 	import NewMeetingForm from "./NewMeetingForm";
 	import MeetingsList from "./MeetingsList";
-
 	export default {
 		components: {NewMeetingForm, MeetingsList},
 		props: ['username', 'meetings'],

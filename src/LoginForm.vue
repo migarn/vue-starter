@@ -2,10 +2,9 @@
     <div>
         <label>Zaloguj się e-mailem</label>
         <input type="email" v-model="email">
-        <button @click="enter()">Zaloguj</button>
+        <button @click="enter()">Zaloguj się</button>
     </div>
 </template>
-
 <script>
     export default {
 		props: ['buttonLabel'],

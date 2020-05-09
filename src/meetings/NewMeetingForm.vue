@@ -8,7 +8,6 @@
 		<p style="color:red;"><button @click="addNewMeeting()">Dodaj</button> {{ this.warning }}</p>		
 	</form>
 </template>
-
 <script>
 	export default {
 		data() {
